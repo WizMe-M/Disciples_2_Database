@@ -10,6 +10,7 @@
     <ItemGroup>
       <PackageReference Include="DBF" Version="1.0.2" />
       <PackageReference Include="DbfDataReader" Version="0.8.0" />
+      <PackageReference Include="EPPlus" Version="5.8.4" />
       <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
     </ItemGroup>
 
