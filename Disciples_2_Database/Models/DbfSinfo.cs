@@ -18,8 +18,8 @@ public class DbfSinfo
         Description = description;
         Briefing = briefing;
         DebunkLose = debunkLose;
-        Brieflongs = new List<string>(brieflongs);
-        DebunkWin = new List<string>(debunkWin);
+        Brieflongs = brieflongs;
+        DebunkWin = debunkWin;
     }
     
     public string NoScene { get; set; }
@@ -27,8 +27,8 @@ public class DbfSinfo
     public string Name { get; set; }
     public string Description { get; set; }
     public string Briefing { get; set; }
-    public List<string> Brieflongs { get; set; }
-    public List<string> DebunkWin { get; set; }
+    public IEnumerable<string> Brieflongs { get; set; }
+    public IEnumerable<string> DebunkWin { get; set; }
     public string DebunkLose { get; set; }
 
 }

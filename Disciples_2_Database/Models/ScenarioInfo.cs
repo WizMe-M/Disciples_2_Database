@@ -29,4 +29,29 @@ public class ScenarioInfo
     //rename
     public string EndingWin { get; set; }
     public string EndingLose { get; set; }
+    
+    public IEnumerable<ScenarioEvent> ScenarioEvents { get; set; }
+
+    public static IEnumerable<ScenarioInfo> MatchScenariosWithEvents(
+        IEnumerable<ScenarioInfo> infos,
+        IEnumerable<ScenarioEvent> events)
+    {
+        var groupedEvents = events.GroupBy(@event => @event.SceneNumber);
+
+        foreach (var group in groupedEvents)
+        {
+            var sceneNumber = group.Key;
+            
+            foreach (var scenarioInfo in infos)
+            {
+                if (scenarioInfo.Number != sceneNumber) continue;
+                
+                scenarioInfo.ScenarioEvents = group.OrderBy(@event => @event.Order);
+                yield return scenarioInfo;
+                break;
+            }
+        }
+    }
+
+
 }
